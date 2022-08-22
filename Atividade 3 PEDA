@@ -1,0 +1,78 @@
+import timeit
+
+n = int()
+x = int()
+y = int()
+z = int()
+int(x) == 1
+fila = []
+i = int()
+size = int(input("Digite o tamanho da fila: "))
+soma = 0
+
+for x in range(0, size):
+  x = x + 1
+  fila.append(x)
+  
+
+for k in range(0, len(fila)):
+  soma += fila[k]
+
+print("soma dos itens: ",soma)
+
+print("---------------------------------------\n")
+
+t1 = timeit.timeit(lambda: fila.append(x))
+print("tempo de preenchimento da fila (s):\n",t1)
+
+
+print("---------------------------------------\n")
+
+
+t2 = timeit.timeit(lambda: soma)
+print("tempo de soma dos elementos da fila (s):\n",t2)
+
+
+print("---------------------------------------\n")
+
+
+num = int(input("escolha um numero: "))
+if num <= len(fila):
+  print("seu numero é:",num)
+
+def leia1():
+  for i in fila:
+      i = fila.pop(-1)
+      if int(i) == num:
+          print("o numero",i ,"ta na fila")
+
+print("---------------------------------------\n")
+
+t3 = timeit.timeit(lambda: leia1())
+print("tempo de leitura do final ate o começo (s): ",t3)
+
+
+print("---------------------------------------\n")
+
+for x in range(0, size): #encher a lista de novo
+  x = x + 1
+  fila.append(x)
+  
+print("Agora lendo na direção oposta...\n")
+
+def leia2():
+  for n in fila:
+      n = fila.pop(0)
+      if int(n) == num:
+          print("o numero",n ,"continua na fila")
+
+  
+t4 = timeit.timeit(lambda: leia2())
+print("tempo de leitura do começo ao fim (s): ",t4)
+
+
+print("---------------------------------------")
+print(n,y,z) #apenas para mostrar que a pilha foi                      #esvaziada
+print("---------------------------------------\n")
+print(" \[T]/ \[T]/ \[T]/ \[T]/ \[T]/ \[T]/ \[T]/ \[T]/ \[T]/")
+
